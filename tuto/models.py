@@ -57,6 +57,10 @@ class User(db.Model, UserMixin):
 
     def increment_nblogins(self):
         self.nb_logins= self.nb_logins + 1
+        db.session.commit()
+
+    def __repr__(self):
+        return "<User (%s) %d>" % (self.username, self.nb_logins)
 
 @login_manager.user_loader
 def load_user(username):

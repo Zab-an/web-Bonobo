@@ -5,5 +5,6 @@ pip install -r requiremente.txt
 ##Pour lancer l'application : 
 flask run
 
-##Utilisateur pour tester la connexion:
-username : moi<br/>  password : moi
+## Créer un utilisateur pour tester la connexion:
+flask newuser <username\> <password\>
+
