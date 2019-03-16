@@ -46,6 +46,13 @@ def newuser(username, password):
     from hashlib import sha256
     m = sha256()
     m.update(password.encode())
-    u = User(username = username, password = m.hexdigest())
+    u = User(username=username,password=m.hexdigest())
     db.session.add(u)
     db.session.commit()
+
+# @app.cli.command()
+# def update_nb_connexions():
+#     ''' Test ajout nb connexions'''
+#     from .models import User
+#     User.nb_logins+=1
+#     db.session.commit()

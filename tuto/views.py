@@ -137,6 +137,7 @@ def login():
         user = f.get_authenticated_user()
         if user:
             login_user(user)
+            user.increment
             return redirect(url_for("home"))
     return render_template("login.html", form=f)
 

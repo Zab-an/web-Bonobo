@@ -50,9 +50,13 @@ def have_books(id):
 class User(db.Model, UserMixin):
     username = db.Column(db.String(50), primary_key = True)
     password = db.Column(db.String(64))
+    nb_logins = db.Column(db.Integer, default=0)
 
     def get_id(self):
         return self.username
+
+    def increment_nblogins(self):
+        self.nb_logins= self.nb_logins + 1
 
 @login_manager.user_loader
 def load_user(username):
